@@ -86,7 +86,7 @@ docker kill factorioworldgen
 
 docker rm factorioworldgen
 
-docker run -it --name factorioworldgen --restart=always --network="host" -v "{path/to/project}/Settings":"/FactorioBot/Resources" -v "{path/to/project}/Resources":"/home/factorio" mrdnalex/factorioworldgenbot
+docker run -it --name factorioworldgen --restart=always -v "{path/to/project}/Settings":"/FactorioBot/Resources" -v "{path/to/project}/Resources":"/home/factorio" mrdnalex/factorioworldgenbot
 ```
 
 Save the File and then make it executable using the following

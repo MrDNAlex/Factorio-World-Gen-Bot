@@ -24,12 +24,24 @@ class FactorioServerBotDataManager extends BotDataManager {
     public CreateDirectories() {
         const world = "/home/factorio/World";
         const previews = "/home/factorio/Previews";
+        const backups = "/home/factorio/Backups";
+        const extras = "/home/factorio/Backups/Extras";
+        const worldUpload = "/home/factorio/WorldUpload";
 
         if (!fs.existsSync(world))
             fs.mkdirSync(world, { recursive: true });
 
         if (!fs.existsSync(previews))
             fs.mkdirSync(previews, { recursive: true });
+
+        if (!fs.existsSync(backups))
+            fs.mkdirSync(backups, { recursive: true });
+
+        if (!fs.existsSync(extras))
+            fs.mkdirSync(extras, { recursive: true });
+
+        if (!fs.existsSync(worldUpload))
+            fs.mkdirSync(worldUpload, { recursive: true });
     }
 
     public SetActivity(client: Client) {

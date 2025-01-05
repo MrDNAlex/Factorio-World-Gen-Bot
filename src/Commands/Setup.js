@@ -21,7 +21,7 @@ class Start extends dna_discord_framework_1.Command {
                 dataManager.WORLD_CHANNEL_ID = worldChannel.id;
                 dataManager.WORLD_CHANNEL_SET = true;
             }
-            this.AddToMessage("Bot has been Setup with the Following Connection Info:");
+            this.AddToMessage("Bot has been Setup with the Following Info:");
             if (worldChannel)
                 this.AddToMessage(`World Channel: ${worldChannel}`);
             dataManager.BOT_SETUP = true;

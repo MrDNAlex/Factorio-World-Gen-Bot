@@ -3,6 +3,7 @@ import { BotData, BotDataManager, Command, ICommandOption, OptionTypesEnum } fro
 import FactorioServerBotDataManager from "../FactorioServerBotDataManager";
 import fs from "fs";
 import FactorioServerManager from "../FactorioServer/FactorioServerManager";
+import BackupManager from "../BackupManager";
 
 class Worlds extends Command {
 
@@ -49,6 +50,8 @@ class Worlds extends Command {
             else
                 this.AddToMessage("Map File is too large to send, please download it from the server");
 
+            await this.UploadServerPackage(worldManager);
+
             return;
         }
 
@@ -60,6 +63,28 @@ class Worlds extends Command {
             let seed = seedDir.replace("SEED_", "");
             this.AddToMessage(seed);
         });
+    }
+
+    public async UploadServerPackage(worldManager: FactorioServerManager) {
+        let packageDir = FactorioServerManager.WorldUpload;
+        let dataManager = BotData.Instance(FactorioServerBotDataManager);
+        let backupManager = new BackupManager(packageDir, packageDir, worldManager.WorldDirectory);
+
+        if (!fs.existsSync(packageDir))
+            fs.mkdirSync(packageDir, { recursive: true });
+
+        await backupManager.CreateBackup(dataManager, "Server_World");
+
+        let serverPackage = `${packageDir}/Server_World.tar.gz`;
+
+        if (fs.fstatSync(fs.openSync(serverPackage, 'r')).size < this.MB_25)
+            this.AddFileToMessage(packageDir + "/Server_World.tar.gz");
+        else
+            this.AddToMessage("Server Package is too large to send, please download it from the server");
+
+        await new Promise(resolve => setTimeout(resolve, 5000));
+
+        backupManager.ManageBackupFiles(0);
     }
 
     public Options?: ICommandOption[] =

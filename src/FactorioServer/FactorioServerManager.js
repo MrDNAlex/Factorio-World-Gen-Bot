@@ -179,6 +179,7 @@ class FactorioServerManager {
     }
 }
 // Files
+FactorioServerManager.WorldUpload = "/home/factorio/WorldUpload";
 FactorioServerManager.WorldDirectory = "/home/factorio/World";
 FactorioServerManager.WorldImagePath = "/home/factorio/World/Preview.png";
 FactorioServerManager.WorldFilePath = "/home/factorio/World/World.zip";

@@ -6,6 +6,7 @@ const dna_discord_framework_1 = require("dna-discord-framework");
 const FactorioServerBotDataManager_1 = __importDefault(require("../FactorioServerBotDataManager"));
 const fs_1 = __importDefault(require("fs"));
 const FactorioServerManager_1 = __importDefault(require("../FactorioServer/FactorioServerManager"));
+const BackupManager_1 = __importDefault(require("../BackupManager"));
 class Worlds extends dna_discord_framework_1.Command {
     constructor() {
         super(...arguments);
@@ -38,6 +39,7 @@ class Worlds extends dna_discord_framework_1.Command {
                     this.AddFileToMessage(worldManager.WorldFile);
                 else
                     this.AddToMessage("Map File is too large to send, please download it from the server");
+                await this.UploadServerPackage(worldManager);
                 return;
             }
             this.AddToMessage("Available Worlds to Load are:\n");
@@ -56,6 +58,21 @@ class Worlds extends dna_discord_framework_1.Command {
                 required: false
             }
         ];
+    }
+    async UploadServerPackage(worldManager) {
+        let packageDir = FactorioServerManager_1.default.WorldUpload;
+        let dataManager = dna_discord_framework_1.BotData.Instance(FactorioServerBotDataManager_1.default);
+        let backupManager = new BackupManager_1.default(packageDir, packageDir, worldManager.WorldDirectory);
+        if (!fs_1.default.existsSync(packageDir))
+            fs_1.default.mkdirSync(packageDir, { recursive: true });
+        await backupManager.CreateBackup(dataManager, "Server_World");
+        let serverPackage = `${packageDir}/Server_World.tar.gz`;
+        if (fs_1.default.fstatSync(fs_1.default.openSync(serverPackage, 'r')).size < this.MB_25)
+            this.AddFileToMessage(packageDir + "/Server_World.tar.gz");
+        else
+            this.AddToMessage("Server Package is too large to send, please download it from the server");
+        await new Promise(resolve => setTimeout(resolve, 5000));
+        backupManager.ManageBackupFiles(0);
     }
 }
 module.exports = Worlds;

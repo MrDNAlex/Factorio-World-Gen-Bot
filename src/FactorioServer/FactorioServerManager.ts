@@ -51,6 +51,8 @@ class FactorioServerManager {
 
     // Files
 
+    public static WorldUpload = "/home/factorio/WorldUpload";
+
     public static WorldDirectory = "/home/factorio/World";
 
     public static WorldImagePath = "/home/factorio/World/Preview.png";

@@ -120,3 +120,43 @@ If the Final Message you get is Commands Registered then you are Done!
 
 Now you can go Interact with me on Discord, using /help may be a good start
 
+## Commands
+All Commands can be used using /name, must be all lower case, some additional optional or mandatory info can be provided to commands. Discord will specify when needed.
+
+---
+
+### Help
+Provides some Helpful Info about Setting me up and Using other Commands. Also Uploads a MapGenSettings.json Template File
+
+---
+
+### Setup 
+Sets me up with all Files and Info I need, you can optinally set a Text Channel where World Gen Announcements will be Sent
+
+---
+
+### GenWorld
+Generates a World Preview Image and File, these files are Uploaded to an Ephemeral Message, this is only visible to you and Disappears after a few Minutes. If a Text Channel was Specified the Image and World File will be Uploaded and Publicly Announced in the Channel
+
+#### Options
+Name - A Name for the World **Must** be Specified
+
+PreviewSize - Size of the World Preview (In Pixels) (Max Size that Can be Uploaded is 25 MB or about 8000) (Default is 1024)
+
+Seed - A Seed Can be specified for the World Gen, if not specified a Random Seed will be used
+
+
+MapGenSettings - A Json File that can be uploaded specifying World Gen Settings, such as Frequency, Size and Richness of Ore Patches and More. Download the File Template from the /help command
+
+---
+
+### World
+Lists all the World Seeds that I've Generated, if a Seed is specified, I will upload the Preview Image, World ZIP File and a Server_Package.tar.gz, the Server Package can be Uploaded to my Server Hosting Counterpart in the /loadworld Command
+
+#### Options
+Seed - Seed can be Specified if you want to Download a Worlds Preview, World ZIP File or Server_Package.tar.gz
+
+---
+
+## Contact
+If you have further questions or would like to discuss custom Discord Bot Developement or Paid Dedicated Hosting you can message me on Discord @ MyTyranosaur

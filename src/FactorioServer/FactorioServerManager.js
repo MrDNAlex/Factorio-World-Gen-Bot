@@ -18,7 +18,6 @@ class FactorioServerManager {
         this.ActionWaitTime = 3000;
         if (data) {
             this.Name = data.Name;
-            this.WorldChosen = data.WorldChosen;
             this.PlayerDB = new PlayerDatabase_1.default(data.PlayerDB);
             this.StartTime = data.StartTime;
             this.WorldSeed = data.WorldSeed;
@@ -32,7 +31,6 @@ class FactorioServerManager {
         else {
             this.Name = "Factorio Server";
             this.StartTime = 0;
-            this.WorldChosen = false;
             this.PlayerDB = new PlayerDatabase_1.default();
             this.WorldSeed = 0;
             this.WorldDirectory = "";

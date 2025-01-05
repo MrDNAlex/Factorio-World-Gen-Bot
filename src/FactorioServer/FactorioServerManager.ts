@@ -13,11 +13,6 @@ class FactorioServerManager {
     Name: string;
 
     /**
-     * Flag to check if a World has been Chosen or World Generation to set it is still needed
-     */
-    WorldChosen: boolean;
-
-    /**
      * Player Database for the Server
      */
     PlayerDB: PlayerDatabase;
@@ -79,7 +74,6 @@ class FactorioServerManager {
 
         if (data) {
             this.Name = data.Name;
-            this.WorldChosen = data.WorldChosen;
             this.PlayerDB = new PlayerDatabase(data.PlayerDB);
             this.StartTime = data.StartTime;
             this.WorldSeed = data.WorldSeed;
@@ -93,7 +87,6 @@ class FactorioServerManager {
         } else {
             this.Name = "Factorio Server";
             this.StartTime = 0;
-            this.WorldChosen = false;
             this.PlayerDB = new PlayerDatabase();
             this.WorldSeed = 0;
 

@@ -11,7 +11,6 @@ I require very little to host, you will need:
 
 - A Linux Machine (Can be a Virtual Machine on Windows or Mac, although a cloud or local machine is ideal, does not need to be powerful)
 - Docker to be Installed in Linux
-- Access to Port Forwarding
 
 ## Setup
 

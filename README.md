@@ -132,6 +132,10 @@ Provides some Helpful Info about Setting me up and Using other Commands. Also Up
 ### Setup 
 Sets me up with all Files and Info I need, you can optinally set a Text Channel where World Gen Announcements will be Sent
 
+#### Options
+
+WorldChannel - A Text Channel that I will send World Gen Announcements to, World Image and ZIP File can be Downloaded from the Announcement. Is Optional to have
+
 ---
 
 ### GenWorld
@@ -143,7 +147,6 @@ Name - A Name for the World **Must** be Specified
 PreviewSize - Size of the World Preview (In Pixels) (Max Size that Can be Uploaded is 25 MB or about 8000) (Default is 1024)
 
 Seed - A Seed Can be specified for the World Gen, if not specified a Random Seed will be used
-
 
 MapGenSettings - A Json File that can be uploaded specifying World Gen Settings, such as Frequency, Size and Richness of Ore Patches and More. Download the File Template from the /help command
 

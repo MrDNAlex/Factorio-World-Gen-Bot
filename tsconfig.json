@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "target": "ES2020",  // Support for BigInt and other newer features
+      "module": "commonjs",
+      "strict": true,
+      "esModuleInterop": true,  // Allows default imports from modules without default exports
+      "skipLibCheck": true,  // This can help avoid errors in .d.ts files if they are not crucial
+    },
+   
+  }
+    

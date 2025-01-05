@@ -25,9 +25,6 @@ class GenWorld extends dna_discord_framework_1.Command {
             let previewImageSize = 1024;
             let seed = Math.floor(Math.random() * this.MaxSeed);
             let dataManager = dna_discord_framework_1.BotData.Instance(FactorioServerBotDataManager_1.default);
-            dataManager.Update();
-            if (await dataManager.SERVER_MANAGER.IsOnline())
-                return this.AddToMessage("Server cannot be Running when Generating a World.");
             if (!name)
                 return this.AddToMessage("Name is Required for the World!");
             if (userSeed)
@@ -56,12 +53,6 @@ class GenWorld extends dna_discord_framework_1.Command {
             this.AddToMessage("World Generation Complete!");
             if (dataManager.WORLD_CHANNEL_SET)
                 this.UploadWorldInfo(client, worldGenManager.ServerManager);
-            dataManager.ServerOffline(client);
-            if (dataManager.WORLD_CHOSEN)
-                return this.AddToMessage("A World has already been Loaded. You can replace the world with what was generated using '/loadworld'");
-            this.ReplaceWorldData(worldGenManager.ServerManager);
-            dataManager.SERVER_MANAGER = worldGenManager.ServerManager;
-            dataManager.SERVER_MANAGER.SaveWorldInfo(true);
         };
         this.Options = [
             {

@@ -1,5 +1,4 @@
-import { BashScriptRunner, BotData } from "dna-discord-framework";
-import FactorioServerBotDataManager from "../FactorioServerBotDataManager";
+import { BashScriptRunner } from "dna-discord-framework";
 import { Attachment } from "discord.js";
 import FactorioServerManager from "./FactorioServerManager";
 import fs from "fs";

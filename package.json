@@ -1,5 +1,5 @@
 {
-    "name": "factorioserverbot",
+    "name": "factorioworldgenbot",
     "version": "1.0.0",
     "main": "./index.js",
     "dependencies": {
@@ -12,11 +12,11 @@
     "scripts": {
         "build": "tsc",
         "start": "npm run build && node index.js",
-        "docker": "npm run build && docker build -t mrdnalex/factorioserverbot .",
-        "dockernocache": "npm run build && docker build --no-cache -t mrdnalex/factorioserverbot .",
-        "dockerpublish": "npm run docker && docker push mrdnalex/factorioserverbot",
-        "dockerpublishnocache": "npm run dockernocache && docker login -u mrdnalex  && docker push mrdnalex/factorioserverbot",
-        "dockertest": "npm run docker && docker run -it --name factoriobot mrdnalex/factorioserverbot",
+        "docker": "npm run build && docker build -t mrdnalex/factorioworldgenbot .",
+        "dockernocache": "npm run build && docker build --no-cache -t mrdnalex/factorioworldgenbot .",
+        "dockerpublish": "npm run docker && docker push mrdnalex/factorioworldgenbot",
+        "dockerpublishnocache": "npm run dockernocache && docker login -u mrdnalex  && docker push mrdnalex/factorioworldgenbot",
+        "dockertest": "npm run docker && docker run -it --name factoriobot mrdnalex/factorioworldgenbot",
         "dockerrm" : "docker kill factoriobot && docker rm factoriobot"
     },
     "keywords": [],

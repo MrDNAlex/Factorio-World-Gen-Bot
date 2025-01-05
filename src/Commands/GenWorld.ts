@@ -30,11 +30,6 @@ class GenWorld extends Command {
         let seed = Math.floor(Math.random() * this.MaxSeed);
         let dataManager = BotData.Instance(FactorioServerBotDataManager);
 
-        dataManager.Update();
-
-        if (await dataManager.SERVER_MANAGER.IsOnline())
-            return this.AddToMessage("Server cannot be Running when Generating a World.");
-
         if (!name)
             return this.AddToMessage("Name is Required for the World!");
 
@@ -77,15 +72,6 @@ class GenWorld extends Command {
 
         if (dataManager.WORLD_CHANNEL_SET)
             this.UploadWorldInfo(client, worldGenManager.ServerManager);
-
-        dataManager.ServerOffline(client);
-
-        if (dataManager.WORLD_CHOSEN)
-            return this.AddToMessage("A World has already been Loaded. You can replace the world with what was generated using '/loadworld'")
-
-        this.ReplaceWorldData(worldGenManager.ServerManager);
-        dataManager.SERVER_MANAGER = worldGenManager.ServerManager;
-        dataManager.SERVER_MANAGER.SaveWorldInfo(true);
     }
 
     /**
